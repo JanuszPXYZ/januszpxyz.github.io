@@ -1,0 +1,306 @@
+/* ======================================
+   Custom styles for Persephone + Prism.js
+   ====================================== */
+
+code, pre {
+  white-space: pre; /* or pre-wrap for blocks */
+}
+
+p {
+  text-align: left;      /* no justification */
+  max-width: 700px;      /* optional for readability */
+  line-height: 1.6;
+}
+
+body {
+  font-family: 'DM Sans', sans-serif;
+  font-weight: 300;
+  background-color: #fdfcf8; /* very light off-white */
+  color: #2e3440;            /* dark gray text for readability */
+}
+
+/* ----- 1. <aside> styling ----- */
+main aside {
+  background-color: #f9f9f9;
+  padding: 1em 1.2em;
+  margin: 1.2em 0;
+  font-style: italic;
+  border-radius: 6px;
+  box-shadow: 0 2px 4px rgba(0,0,0,0.05);
+}
+
+/* ----- 2. Inline code (backticks `likeThis`) ----- */
+
+pre code {
+  font-size: 0.95rem;  /* a touch smaller than paragraphs */
+  line-height: 1.5;
+}
+p code, li code, span code {
+  padding: 0.1em 0.3em;
+  margin: 0;
+  color: #FF474C !important;
+  background-color: #f5f5f5 !important;
+  border-radius: 4px;
+  font-family: "Fira Code", monospace;
+  font-size: 0.8em !important;
+  color: #333;
+  white-space: nowrap;
+}
+/* Remove ugly padding for inline code */
+p code::before,
+p code::after,
+li code::before,
+li code::after {
+  content: none; /* ensure no extra spaces are injected */
+}
+
+/* ----- 3. Block code (Prism.js) ----- */
+pre[class*="language-"] {
+  border-radius: 6px;
+  padding: 1em;
+  overflow-x: auto;
+  background-color: #2e3440; /* dark background */
+  font-family: "Fira Code", monospace;
+  font-size: 0.95em;
+  margin: 1.2em 0;
+}
+
+/* Optional: subtle shadow for blocks */
+pre[class*="language-"] {
+  box-shadow: 0 2px 6px rgba(0,0,0,0.1);
+}
+
+/* Inline Prism tokens look sharper */
+.token.comment,
+.token.prolog,
+.token.doctype,
+.token.cdata {
+  color: #616E88;
+  font-style: italic;
+}
+.token.keyword { color: #C792EA; }
+.token.function { color: #82AAFF; }
+.token.string { color: #C3E88D; }
+.token.number { color: #F07178; }
+.token.operator { color: #89DDFF; }
+.token.punctuation { color: #FFCB6B; }
+.header-title-scroll,
+.post-title-scroll {
+  display: none !important;
+}
+
+footer aside {
+  all: unset;              /* remove all inherited styles */
+  display: block;          /* restore default block behavior */
+  background: none;
+  border: none;
+  box-shadow: none;
+  padding: 0;
+  margin: 0;
+  font-style: normal;
+}
+
+.container {
+  display: flex;
+  gap: 2em;
+  margin-top: 0;
+}
+
+/* Sidebar - Fixed on larger screens */
+.sidebar {
+  width: 200px;
+  flex-shrink: 0;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+  padding: 1em;
+  position: fixed;
+  top: 100px;
+  left: 20px;
+  padding-right: 3.5em;
+  box-sizing: border-box;
+}
+
+/* Full-height divider */
+.sidebar::after {
+  content: "";
+  position: fixed;
+  top: 0;
+  bottom: 0;
+  left: calc(200px + 20px + 2em);
+  width: 1px;
+  background-color: #e0e0e0;
+  z-index: -1;
+}
+
+/* Profile picture */
+.profile-pic {
+  width: 120px;
+  height: 120px;
+  border-radius: 50%;
+  object-fit: cover;
+  margin-bottom: 1em;
+  border: 2px solid #ccc;
+}
+
+/* Desktop-only positioning for profile pic and socials */
+@media (min-width: 901px) {
+  .profile-pic {
+    margin-left: 2.0em;
+  }
+  
+  .profile-bio {
+    margin: 0.0em -2.0em 1.2em 0;
+  }
+  
+  .socials {
+    margin-left: 1.5em;
+  }
+}
+
+.profile-bio {
+  text-align: center;
+  font-size: 0.9em;
+  color: #555;
+  line-height: 1.4;
+  margin-bottom: 1.2em;
+}
+
+/* Social links */
+.socials {
+  display: flex;
+  gap: 1.0em;
+  margin-top: 0.5em;
+}
+
+.socials a img {
+  width: 24px;
+  height: 24px;
+  filter: grayscale(100%);
+  transition: filter 0.3s ease;
+}
+
+.socials a img:hover {
+  filter: grayscale(0%);
+}
+
+/* Main content - CRITICAL: Add left margin to account for fixed sidebar */
+main {
+  flex-grow: 1;
+  margin-left: 260px; /* sidebar width + left offset + small buffer */
+  padding-right: 2em; /* some breathing room on the right */
+  max-width: 900px; /* prevent content from being too wide */
+}
+
+main > a.logo {
+  display: none;
+}
+
+a.logo .custom-logo {
+  height: 40px;
+  width: auto;
+  display: block;
+}
+
+/* Optional: adjust spacing */
+a.logo {
+  display: inline-block;
+  margin: 0;
+  padding: 1em;
+}
+
+/* ===== RESPONSIVE DESIGN ===== */
+/* On tablets and smaller screens, move sidebar above content */
+@media (max-width: 900px) {
+  .container {
+    flex-direction: column;
+    align-items: center;
+    padding: 0;
+    margin: 0;
+  }
+  
+  .sidebar {
+    position: relative; /* For logo positioning */
+    width: 100%;
+    max-width: 100%;
+    padding: 2em 0;
+    margin: 0;
+    left: 0;
+    right: 0;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+  
+  .sidebar::after {
+    display: none; /* Hide vertical divider */
+  }
+  
+  /* Add horizontal divider instead */
+  .sidebar::before {
+    content: "";
+    position: absolute;
+    bottom: 0;
+    left: 10%;
+    right: 10%;
+    height: 1px;
+    background-color: #e0e0e0;
+  }
+  
+  /* Show and position logo on mobile */
+  main > a.logo {
+    display: block !important;
+    position: absolute;
+    top: 1em;
+    left: 50%;
+    transform: translateX(-50%);
+    z-index: 10;
+    margin: 0;
+    padding: 0;
+  }
+  
+  main {
+    margin-left: 0; /* Remove left margin */
+    padding: 0 2em;
+    width: 100%;
+    max-width: 800px;
+  }
+  
+  .profile-pic {
+    margin: 3em 0 1em 0 !important; /* Override all margins */
+  }
+  
+  .profile-bio {
+    margin: 0.5em 0 1.2em 0 !important; /* Override all margins */
+    text-align: center;
+    padding: 0 1em;
+  }
+  
+  .socials {
+    margin: 0.5em 0 0 0 !important; /* Override all margins */
+    justify-content: center;
+  }
+}
+
+/* Even smaller screens - further optimization */
+@media (max-width: 600px) {
+  main {
+    padding: 0 1em;
+  }
+  
+  p {
+    max-width: 100%;
+  }
+  
+  .profile-pic {
+    width: 100px;
+    height: 100px;
+  }
+}
+
+@font-face {
+  font-family: 'AppleGaramond';
+  src: url('/assets/fonts/AppleGaramond-Light.ttf') format('ttf');
+  font-style: normal;
+}

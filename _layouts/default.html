@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>{{ page.title }} | {{ site.title }}</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<link href="https://fonts.googleapis.com/css2?family=DM+Sans:ital,opsz,wght@0,9..40,100..1000;1,9..40,100..1000&display=swap" rel="stylesheet">
+
+<link href="https://fonts.googleapis.com/css2?family=Inconsolata:wght@200..900&family=Raleway:ital,wght@0,100..900;1,100..900&display=swap" rel="stylesheet">
+
+   <link rel="icon" href="{{ '/assets/images/favicon.png' | relative_url }}" type="image/x-icon">
+
+  <!-- Theme CSS -->
+  <link rel="stylesheet" href="{{ '/assets/main.css' | relative_url }}">
+  
+  <!-- Custom CSS -->
+  <link rel="stylesheet" href="{{ '/assets/css/custom.css' | relative_url }}">
+
+  <!-- Prism.js CSS -->
+  <link href="https://cdn.jsdelivr.net/npm/prismjs@1.30.0/themes/prism-tomorrow.css" rel="stylesheet" 
+/>
+
+
+</head>
+<body>
+
+    <a href="/" class="logo">
+      <img src="{{ '/assets/images/dotNoteLogo.png' | relative_url }}" alt="{{ site.title }}" class="custom-logo">
+    </a>
+
+  <div class="container">
+    <!-- Sidebar -->
+    <aside class="sidebar">
+      <img src="{{ '/assets/images/dotNetProfile.jpg' | relative_url }}" alt="Profile" class="profile-pic">
+
+      <p class="profile-bio">
+        I'm Janusz, an iOS Developer that loves tech, programming, guitar, and startups
+      </p>
+      <div class="socials">
+      <a href="https://github.com/JanuszPXYZ" target="_blank" aria-label="GitHub">
+        <img src="{{ '/assets/icons/GitHubIcon.png' | relative_url }}" alt="GitHub">
+      </a>
+      <a href="https://twitter.com/januszpdev" target="_blank" aria-label="Twitter">
+        <img src="{{ '/assets/icons/X_icon.svg' | relative_url }}" alt="Twitter">
+      </a>
+      <a href="https://linkedin.com/in/janusz-polowczyk-kilis" target="_blank" aria-label="LinkedIn">
+        <img src="{{ '/assets/icons/LinkedInIcon.png' | relative_url }}" alt="LinkedIn">
+      </a>
+
+      </div>
+    </aside>
+
+  <main>
+    {{ content }}
+  </main>
+
+  <!-- Prism.js JS -->
+  <script src="https://cdn.jsdelivr.net/npm/prismjs@1.30.0/prism.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/prismjs@1.30.0/components/prism-swift.min.js"></script>
+</body>
+</html>
+
