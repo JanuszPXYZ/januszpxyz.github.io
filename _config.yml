@@ -3,7 +3,12 @@ email: januszpolowczyk19@gmail.com
 description: "Software engineering, startups, and tech"
 baseurl: "" # for GitHub Pages; if using custom domain adjust later
 url: "https://januszpxyx.github.io"
-theme: jekyll-theme-persephone
+# theme: jekyll-theme-persephone
+
+plugins:
+  - jekyll-remote-theme
+
+remote_theme: erlzhang/jekyll-theme-persephone
 # Optional / useful settings:
 markdown: kramdown
 highlighter: rouge
