@@ -7,7 +7,7 @@ url: "https://januszpxyx.github.io"
 
 plugins:
   - jekyll-remote-theme
-
+  - jekyll-sitemap
 remote_theme: erlzhang/jekyll-theme-persephone
 # Optional / useful settings:
 markdown: kramdown
