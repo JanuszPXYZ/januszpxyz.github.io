@@ -3,6 +3,7 @@ layout: post
 title: "'Slaying the Bazelisk' - Adventures in Modularity, Build Systems, and SPM Integration"
 date: 2025-10-05-16:14
 categories: Software
+description: "How I migrated an iOS app to Bazel, enforced modular boundaries, and reduced build times with better dependency management."
 ---
 Over the past two months I’ve been working on my third iOS application, [Hacksy](https://testflight.apple.com/join/KTYHMzjT). It’s a HackerNews reader with functionality that I always missed in the readers that I used. However, along the way I realized that - apart from implementing some cool features - this project can be expanded to a large-scale modular architecture. One might ask, *who in their right mind would do such thing for a side project?* The answer is me. Building apps is cool and I love it, but after your second or third app, you’re kind of falling on similar patterns and I like a bit of a challenge, especially within the domain that I already have some experience in. Also, I love complicating my life, so there’s that. 
 

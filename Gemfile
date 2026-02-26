@@ -3,6 +3,8 @@
 source "https://rubygems.org"
 gem "jekyll", "~> 4.2"
 gem "jekyll-theme-persephone"
+gem "jekyll-sitemap"
+gem "jekyll-seo-tag"
 
 gem "github-pages", group: :jekyll_plugins
 gem "jekyll-remote-theme", group: :jekyll_plugins

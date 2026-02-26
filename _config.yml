@@ -2,12 +2,18 @@ title: "dotNote"
 email: januszpolowczyk19@gmail.com
 description: "Software engineering, startups, and tech"
 baseurl: "" # for GitHub Pages; if using custom domain adjust later
-url: "https://januszpxyx.github.io"
+url: "https://januszpxyz.github.io"
+lang: "en-US"
+logo: "/assets/images/dotNoteLogo.png"
+twitter_username: "januszpdev"
+author:
+  name: "Janusz Polowczyk"
 # theme: jekyll-theme-persephone
 
 plugins:
   - jekyll-remote-theme
   - jekyll-sitemap
+  - jekyll-seo-tag
 remote_theme: erlzhang/jekyll-theme-persephone
 # Optional / useful settings:
 markdown: kramdown
@@ -22,6 +28,11 @@ social:
   github: JanuszPXYZ
 
 show_header_title_on_scroll: false
+defaults:
+  - scope:
+      path: ""
+      type: "posts"
+    values:
+      image: "/assets/images/dotNetProfile.jpg"
 # Persephone specific settings you may want to change:
 # (look through the theme’s README for what’s configurable)
-
