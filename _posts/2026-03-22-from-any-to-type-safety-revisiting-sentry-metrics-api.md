@@ -229,7 +229,7 @@ Great, but what does this have to do with type context propagation? Quite a lot 
 "related_items": [ProductID(), CategoryID()]
 ```
 
-There is no explicit type annotation **anywhere** near that array literal. The only source of **`any** **SentryAttributeValue**` type information in scope is the **`count`** function signature:
+There is no explicit type annotation **anywhere** near that array literal. The only source of `any SentryAttributeValue` type information in scope is the `count` function signature:
 
 ```swift
 func count(key: String, value: UInt, attributes: [String: any SentryAttributeValue])
@@ -329,7 +329,6 @@ and plugging it into the array with **`ProductID`** and **`CategoryID`** will re
 What started as a close reading of a compiler error turned into something more interesting: a demonstration of Swift’s type inference capabilities. Given sufficient type context (whether from an explicit annotation or a function signature) the compiler is remarkably precise about preserving the existential type information all the way down through nested literals, as was unambiguously proven by the SIL output. My little experiment also revealed where Swift’s “ceiling” is. The **`where`** clause and type context propagation have to cooperate perfectly for this to work: remove either one and the whole chain breaks. 
 
 Throughout this exploration, there was this one thought that kept resurfacing: how awesome would it be if Swift had Zig’s **`comptime`** feature. It’s not a criticism of Swift by any means, but a loose observation about what becomes possible when the compile-time/runtime boundary is a first-class language concern rather than something you have to “navigate around”. Swift is of course still evolving (although whether or not its evolution is taking a positive turn is up for discussion), but **`comptime`** remains a glimpse of a different way of thinking about the problem entirely.
-
 
 
 I thoroughly enjoyed this deep dive into Swift and Sentry API. Huge thanks (and a special shoutout) to Sentry for hosting the Mobileheads meetup, to Stefan Pölz for an interesting talk and to [Phil Niedertscheider](https://sentry.engineering/about/philniedertscheider) for inspiring me to write this article. As I said in the beginning, I may be totally wrong on this and the removal of the **`where`** clause from the **`Array`** extension may be the right call for Sentry’s Metrics API. I acknowledge that I may be missing some foundational building blocks, but as always, I am more than open to learning and what better way to learn than through making mistakes!
