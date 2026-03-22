@@ -212,7 +212,7 @@ The results of my tiny experiment made me extremely puzzled, because printing th
   %35 = apply %34<any SentryAttributeValue>(%33) : $@convention(thin) <τ_0_0> (Builtin.Word) -> (@owned Array<τ_0_0>, Builtin.RawPointer) // users: %37, %36
 ```
 
-What this bit is showing is the compiler calling the **`_allocateUninitializedArray`**, an internal Swift function that allocates new array. The critical part is the generic parameter it is being instantiated with: **`<any** **SentryAttributeValue>**`. This means the compiler decided on **`any** **SentryAttributeValue**` as the element type **at the moment of allocation**, before any elements are inserted, or any runtime casting happens. Looking more into the SIL output, immediately after the compiler decided on the element type, there is this:
+What this bit is showing is the compiler calling the `_allocateUninitializedArray`, an internal Swift function that allocates new array. The critical part is the generic parameter it is being instantiated with: `<anySentryAttributeValue>`. This means the compiler decided on `any SentryAttributeValue` as the element type **at the moment of allocation**, before any elements are inserted, or any runtime casting happens. Looking more into the SIL output, immediately after the compiler decided on the element type, there is this:
 
 ```nasm
   %36 = tuple_extract %35 : $(Array<any SentryAttributeValue>, Builtin.RawPointer), 0 // users: %38, %53
@@ -330,6 +330,10 @@ What started as a close reading of a compiler error turned into something more i
 
 Throughout this exploration, there was this one thought that kept resurfacing: how awesome would it be if Swift had Zig’s **`comptime`** feature. It’s not a criticism of Swift by any means, but a loose observation about what becomes possible when the compile-time/runtime boundary is a first-class language concern rather than something you have to “navigate around”. Swift is of course still evolving (although whether or not its evolution is taking a positive turn is up for discussion), but **`comptime`** remains a glimpse of a different way of thinking about the problem entirely.
 
+
+
 I thoroughly enjoyed this deep dive into Swift and Sentry API. Huge thanks (and a special shoutout) to Sentry for hosting the Mobileheads meetup, to Stefan Pölz for an interesting talk and to [Phil Niedertscheider](https://sentry.engineering/about/philniedertscheider) for inspiring me to write this article. As I said in the beginning, I may be totally wrong on this and the removal of the **`where`** clause from the **`Array`** extension may be the right call for Sentry’s Metrics API. I acknowledge that I may be missing some foundational building blocks, but as always, I am more than open to learning and what better way to learn than through making mistakes!
 
-Janusz
+
+
+**Janusz**
