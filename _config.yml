@@ -4,6 +4,7 @@ description: "Software engineering, startups, and tech"
 baseurl: "" # for GitHub Pages; if using custom domain adjust later
 url: "https://januszpxyz.github.io"
 lang: "en-US"
+timezone: "Europe/Vienna"
 logo: "/assets/images/dotNoteLogo.png"
 twitter_username: "januszpdev"
 author:

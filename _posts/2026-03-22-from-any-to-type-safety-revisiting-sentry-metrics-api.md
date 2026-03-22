@@ -1,7 +1,7 @@
 ---
 layout: post
 title: "From `Any` to Type Safety: Revisiting Sentry's Metrics API"
-date: 2026-03-22-18:53
+date: 2026-03-22 18:53:00 +0100
 categories: Software
 description: "How deep does Swift's type inference actually go? Digging into Sentry's Metrics API reveals a compiler that's more capable than it's given credit for."
 ---
