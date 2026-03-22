@@ -193,18 +193,20 @@ main {
   max-width: 900px; /* prevent content from being too wide */
 }
 
+/* Keep the theme's internal text logo hidden; we use the custom image logo in <body>. */
 main > a.logo {
-  display: none;
+  display: none !important;
 }
 
-a.logo .custom-logo {
+body > a.logo .custom-logo {
   height: 40px;
   width: auto;
+  max-width: 180px;
   display: block;
 }
 
-/* Optional: adjust spacing */
-a.logo {
+/* Header logo wrapper */
+body > a.logo {
   display: inline-block;
   margin: 0;
   padding: 1em;
@@ -248,8 +250,8 @@ a.logo {
     background-color: #e0e0e0;
   }
   
-  /* Show and position logo on mobile */
-  main > a.logo {
+  /* Position the actual image logo on mobile */
+  body > a.logo {
     display: block !important;
     position: absolute;
     top: 1em;
@@ -258,6 +260,12 @@ a.logo {
     z-index: 10;
     margin: 0;
     padding: 0;
+  }
+
+  body > a.logo .custom-logo {
+    height: 32px;
+    width: auto;
+    max-width: 70vw;
   }
   
   main {
